@@ -2,19 +2,18 @@
 
 <div class="row">
     <div class="col-md-3">
-        <p class="lead">YelpCamp</p>
+        <p class="lead">Views of Views</p>
         <div class="list-group">
             <li class="list-group-item active">Info 1</li>
             <li class="list-group-item">Info 2</li>
             <li class="list-group-item">Info 3</li>
         </div>
-        <!-- map location -->
     </div>
     <div class="col-md-9">
         <div class="thumbnail">
             <img class="img-responsive" src="<%= campground.image %>">
             <div class="caption-full">
-                <h4 class="pull-right">R<%= campground.price %>/night</h4>
+                <h4 class="pull-right">Viewers rating: <%= campground.rating %>/10</h4>
                 <h4><a><%=campground.name%></a></h4>
                 <p><%= campground.description %></p>
                 <p>

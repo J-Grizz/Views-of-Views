@@ -1,26 +1,24 @@
-<h1>Edit Form</h1>
 <% include ../partials/header %>
 
 
 <div class="row">
-    <h1 style="text-align:center; margin: 50px 0px;">Edit <%= campground.name %></h1>
+    <h1 style="text-align:center; margin: 50px 0px;">Edit <%= view.name %></h1>
     <div style="width:30%; margin:0 auto;">
-        <form action="/campgrounds/<%= campground._id %>?_method=Put" method="POST">
+        <form action="/campgrounds/<%= view._id %>?_method=Put" method="POST">
             <div class="form-group">
-                <input class="form-control" type="text" name="campground[name]" placeholder="Name"
-                    value="<%= campground.name %>">
+                <input class="form-control" type="text" name="view[name]" placeholder="Name" value="<%= view.name %>">
             </div>
             <div class="form-group">
-                <input class="form-control" type="text" name="campground[image]" placeholder="Image Url"
-                    value="<%= campground.image %>">
+                <input class="form-control" type="text" name="view[image]" placeholder="Image Url"
+                    value="<%= view.image %>">
             </div>
             <div class="form-group">
-                <input class="form-control" type="number" name="campground[price]" value="<%= campground.price %>"
-                    min="0.01" step="0.01">
+                <input class="form-control" type="number" name="view[rating]" value="<%= view.rating %>" min="1"
+                    max="10" step="1">
             </div>
             <div class="form-group">
-                <input class="form-control" type="text" name="campground[description]" placeholder="Description"
-                    value="<%= campground.description %>">
+                <input class="form-control" type="text" name="view[description]" placeholder="Description"
+                    value="<%= view.description %>">
             </div>
             <div class="form-group">
                 <button class="btn btn-lg btn-default btn-block btn-primary">Submit!</button>
