@@ -1,16 +1,22 @@
 <% include ../partials/header %>
-
-<div class="row">
-    <h1 style="text-align:center; margin: 50px 0px;">Edit Comment</h1>
-    <div style="width:30%; margin:0 auto;">
-        <form action="/campgrounds/<%= campground_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
-            <div class="form-group">
-                <input class="form-control" type="text" name="comment[text]" value="<%= comment.text %>">
-            </div>
-            <div class="form-group">
-                <button class="btn btn-lg btn-default btn-block btn-primary">Submit!</button>
-            </div>
-        </form>
+<div class="background"></div>
+<div style="height: 85vh" class="container d-flex align-items-center justify-content-center">
+    <div style="width: 80%" class="card">
+        <h5 class="card-header grey darken-4 white-text text-center mb-5 py-4">
+            <strong>Login</strong>
+        </h5>
+        <div class="card-body px-lg-5 pt-0">
+            <form class="text-center" action="/campgrounds/<%= campground_id %>/comments/<%= comment._id %>?_method=PUT"
+                method="POST">
+                <div class="md-form">
+                    <input class="form-control" type="text" name="comment[text]" id="comm" value="<%= comment.text %>">
+                    <label for="comm">Comment</label>
+                </div>
+                <div class="md-form">
+                    <button class="btn btn-lg btn-default btn-block btn-primary">Submit!</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

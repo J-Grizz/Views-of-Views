@@ -1,20 +1,26 @@
-.thumbnail img {
+.background {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: url(https://res.cloudinary.com/dufbyqbkk/image/upload/v1569951224/Views%20of%20Views/homebackground_k9h9to.jpg);
+    position: fixed;
+    z-index: -1;
+}
+
+
+.card img {
     width: 100%;
 }
 
-.thumbnail {
-    padding: 0px;
+.card .card-image {
+    height: 130px;
 }
 
-.thumbnail .caption-full {
+.card .caption-full {
     padding: 9px;
 }
 
 .delete-form {
     display: inline;
-}
-
-#map {
-    width: 100%;
-    height: 400px;
 }

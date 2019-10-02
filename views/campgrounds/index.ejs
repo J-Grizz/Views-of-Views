@@ -1,27 +1,26 @@
 <%include ../partials/header%>
 
-<header class="jumbotron">
-    <div class="container">
-        <h1>This is the view's page!</h1>
-        <p>All the camp sites I've camped at in my life.</p>
-        <a class="btn btn-primary btn-lg" href="/campgrounds/new">Add New view!</a>
-    </div>
-</header>
 
-<div class="row" style="display:flex; flex-wrap:wrap;">
+<div class="background"></div>
+<div class="container rgba-grey-light mb-4 p-4">
+    <h1>Welcome to the Views of Views views page!</h1>
+    <p>This is a collection of all the greatest views in the world, feel free to add your own favorite view.</p>
+    <a class="btn aqua-gradient btn-lg" href="/campgrounds/new">Add New view!</a>
+</div>
+
+<div class="d-flex flex-wrap row">
     <% campgrounds.forEach((camp)=>{ %>
-    <div class="col-md-3 col-sm-6">
-        <div class="thumbnail">
-            <img src="<%= camp.image %>">
-            <div class="caption">
-                <h4><%= camp.name %></h4>
-                <p>
-                    <a class="btn btn-primary" href="/campgrounds/<%= camp._id %>">More Info</a>
-                </p>
+    <div class="col-md-3 col-sm-6 mb-4">
+        <div class="card">
+            <img class="card-image" src="<%= camp.image %>">
+            <div class="card-body">
+                <div class="d-flex align-items-center" style="height: 70px">
+                    <h4 class="card-title" style="width:100%"><%= camp.name %></h4>
+                </div>
+                <a class="btn btn-sm blue-gradient" href="/campgrounds/<%= camp._id %>">More Info</a>
             </div>
         </div>
     </div>
     <% }); %>
 </div>
-
 <%include ../partials/footer%>

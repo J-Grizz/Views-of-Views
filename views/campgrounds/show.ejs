@@ -1,20 +1,12 @@
 <% include ../partials/header %>
-
-<div class="row">
-    <div class="col-md-3">
-        <p class="lead">Views of Views</p>
-        <div class="list-group">
-            <li class="list-group-item active">Info 1</li>
-            <li class="list-group-item">Info 2</li>
-            <li class="list-group-item">Info 3</li>
-        </div>
-    </div>
-    <div class="col-md-9">
-        <div class="thumbnail">
+<div class="background"></div>
+<div class="row d-flex justify-content-center">
+    <div style="width: 100%" class="col-md-10">
+        <div class="card mb-1">
             <img class="img-responsive" src="<%= campground.image %>">
-            <div class="caption-full">
-                <h4 class="pull-right">Viewers rating: <%= campground.rating %>/10</h4>
-                <h4><a><%=campground.name%></a></h4>
+            <div class="card-body d-flex flex-wrap">
+                <h4 class="mr-auto"><a><%=campground.name%></a></h4>
+                <h4 class="ml-auto">Viewers rating: <%= campground.rating %>/10</h4>
                 <p><%= campground.description %></p>
                 <p>
                     <em>Submitted By <%= campground.author.username %></em>
@@ -27,26 +19,25 @@
                 <% }; %>
             </div>
         </div>
-        <div class="well">
-            <div class="text-right">
-                <a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add New Comment</a>
-            </div>
-            <hr>
+        <div class="mb-1">
+            <a class="btn aqua-gradient" href="/campgrounds/<%= campground._id %>/comments/new">Add New Comment</a>
+        </div>
+        <div class="mb-5 container">
             <% campground.comments.forEach(function(comment){ %>
-            <div class="row">
-                <div class="col-md-12">
-                    <b><%= comment.author.username %></b>
-                    <span class="pull-right">10 days ago</span>
-                    <p><%= comment.text %></p>
+            <div class="mb-3 rounded grey lighten-5 row">
+                <div class="d-flex flex-wrap col-md-12 p-3">
+                    <b><%= comment.author.username %> said:</b>
+                    <span class="ml-auto">10 days ago</span>
+                    <p class="mb-0" style="width: 100%"><%= comment.text %></p>
                     <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
-                    <a class="btn btn-xs btn-warning"
+                    <a class="btn btn-sm purple-gradient ml-auto"
                         href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">
                         Edit
                     </a>
                     <form class="delete-form"
                         action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE"
                         method="POST">
-                        <input type="submit" class="btn btn-xs btn-danger" value="delete">
+                        <input type="submit" class="btn btn-sm peach-gradient" value="delete">
                     </form>
                     <% }; %>
                 </div>

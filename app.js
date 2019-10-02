@@ -62,7 +62,7 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 //Server Whisperer
-app.listen(3000, process.env.IP, () =>
+app.listen(3005, process.env.IP, () =>
   console.log("Herby, the yelp camp server is now serving.")
 );
 
