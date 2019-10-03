@@ -26,10 +26,6 @@ mongoose.connect(process.env.DATABASEURL, {
   console.log("ERROR", err.message)
 })
 
-mongoose.connect("mongodb://localhost:27017/yelp_camp", {
-  useNewUrlParser: true
-});
-
 //Important Config
 app.use(
   bodyParser.urlencoded({
