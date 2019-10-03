@@ -23,8 +23,6 @@ mongoose.connect("mongodb+srv://jgrizz:t!W5U8SMa7-KCg_@viewsofviews-xcrjg.mongod
   //mongodb+srv://<username>:<password>@viewsofviews-xcrjg.mongodb.net/test?retryWrites=true&w=majority
   useNewUrlParser: true,
   useCreateIndex: true
-}).then(() => {
-  console.log("connected to DB");
 }).catch(err => {
   console.log("ERROR", err.message)
 })
