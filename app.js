@@ -18,10 +18,19 @@ var campgroundRoutes = require("./routes/campgrounds"),
 
 var seedDB = require("./seeds"); //*
 
+// Connect DB
+mongoose.connect("mongodb+srv://jgrizz:t!W5U8SMa7-KCg_@viewsofviews-xcrjg.mongodb.net/test?retryWrites=true&w=majority", {
+  //mongodb+srv://<username>:<password>@viewsofviews-xcrjg.mongodb.net/test?retryWrites=true&w=majority
+  useNewUrlParser: true,
+  useCreateIndex: true
+}).then(() => {
+  console.log("connected to DB");
+}).catch(err => {
+  console.log("ERROR", err.message)
+})
+
+
 //Important Config
-mongoose.connect("mongodb://localhost:27017/yelp_camp", {
-  useNewUrlParser: true
-});
 app.use(
   bodyParser.urlencoded({
     extended: true
