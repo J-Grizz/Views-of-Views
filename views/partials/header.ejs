@@ -2,6 +2,10 @@
 <html>
 
     <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="/public/icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/public/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/public/icons/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
         <!-- Make site responsive on mobile/tablet -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Views of Views</title>
@@ -69,14 +73,14 @@
             </div>
         </nav>
 
-        <div style="margin-top: 80px" class="container">
+        <div style="margin-top: 80px;" class="container">
             <% if(error && error.length > 0){ %>
-            <div class="alert alert-danger" role="alert">
+            <div style="position:fixed; width: 59.5%;" class="alert alert-danger" role="alert">
                 <%= error %>
             </div>
             <% }; %>
             <% if(success && success.length > 0){ %>
-            <div class="alert alert-success" role="alert">
+            <div style="position:fixed; width: 59.5%;" class="alert alert-success" role="alert">
                 <%= success %>
             </div>
             <% }; %>

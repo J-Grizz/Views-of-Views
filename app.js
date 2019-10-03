@@ -16,17 +16,19 @@ var campgroundRoutes = require("./routes/campgrounds"),
   commentRoutes = require("./routes/comments"),
   authRoutes = require("./routes/index");
 
-var seedDB = require("./seeds"); //*
+// var seedDB = require("./seeds"); //*
 
 // Connect DB
-mongoose.connect("mongodb+srv://jgrizz:t!W5U8SMa7-KCg_@viewsofviews-xcrjg.mongodb.net/test?retryWrites=true&w=majority", {
-  //mongodb+srv://<username>:<password>@viewsofviews-xcrjg.mongodb.net/test?retryWrites=true&w=majority
+mongoose.connect(process.env.DATABASEURL, {
   useNewUrlParser: true,
   useCreateIndex: true
 }).catch(err => {
   console.log("ERROR", err.message)
 })
 
+mongoose.connect("mongodb://localhost:27017/yelp_camp", {
+  useNewUrlParser: true
+});
 
 //Important Config
 app.use(
@@ -40,7 +42,7 @@ app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 app.use(flash());
 
-seedDB();
+// seedDB();
 
 //Passport Authentication Config
 app.use(
@@ -69,7 +71,7 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 //Server Whisperer
-app.listen(process.env.PORT, process.env.IP, () =>
+app.listen(process.env.PORT || 3000, process.env.IP, () =>
   console.log("Herby, the yelp camp server is now serving.")
 );
 
